@@ -155,10 +155,8 @@
                     <div class="text-danger mb-4 d-none subtitle" id="register-error">Please correct the error(s)</div>
                     <ul class="sr-only" id="register-error-list"></ul>
                     <form id="register-form" novalidate>
-                        <div class="form-group">
-                            <p class="form-label" id="register-basic-legend">Basic information
-                                <small class="text-secondary">(optional)</small>
-                            </p>
+                        <fieldset>
+                            <legend>Basic information <small class="text-secondary">(optional)</small></legend>
                             <div class="form-row">
                                 <div class="form-group col-12 col-lg-6">
                                     <label for="register-first-name-control">First name</label>
@@ -193,11 +191,9 @@
                                 </select>
                                 <small class="invalid-feedback"></small>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <p class="form-label" id="register-address-legend">Additional information
-                                <small class="text-secondary">(optional)</small>
-                            </p>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Additional information <small class="text-secondary">(optional)</small></legend>
                             <div class="form-group">
                                 <label for="register-street-control">Street</label>
                                 <input class="form-control" id="register-street-control" type="text" placeholder="Street">
@@ -216,13 +212,12 @@
                                     <input class="form-control" id="register-zip-control" type="text" placeholder="Zip">
                                 </div>
                             </div>
-                        </div>
+                        </fieldset>
                         <button class="btn btn-primary" id="register-register-button">Register</button>
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
+
 
     <div class="container-fluid bg-dark mt-4 footer">
         <div class="container text-center py-3">
