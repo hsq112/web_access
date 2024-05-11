@@ -119,67 +119,77 @@ function register(event) {
     var hasError = false;
 
     var firstName = document.getElementById('register-first-name-control');
+    var firstNameError = document.getElementById('register-first-name-error');
     if (firstName.value.trim().length == 0) {
         setInvalid(firstName);
+        firstNameError.textContent = 'First name is required.';
         hasError = true;
-    } else if (firstName.validity.valid) {
+    } else {
         setValid(firstName);
+        firstNameError.textContent = ''; // Clear the error message
     }
 
     var lastName = document.getElementById('register-last-name-control');
+    var lastNameError = document.getElementById('register-last-name-error');
     if (lastName.value.trim().length == 0) {
         setInvalid(lastName);
+        lastNameError.textContent = 'Last name is required.';
         hasError = true;
-    } else if (lastName.validity.valid) {
+    } else {
         setValid(lastName);
+        lastNameError.textContent = ''; // Clear the error message
     }
 
     var email = document.getElementById('register-email-control');
-    if (email.validity.valid) {
-        setValid(email);
-    } else if (email.validity.valueMissing) {
+    var emailError = document.getElementById('register-email-error');
+    if (!email.validity.valid) {
         setInvalid(email);
+        emailError.textContent = email.validity.valueMissing ? 'Email is required.' : 'Please enter a valid email.';
         hasError = true;
     } else {
-        setInvalid(email);
-        hasError = true;
+        setValid(email);
+        emailError.textContent = ''; // Clear the error message
     }
 
     var password = document.getElementById('register-password-control');
+    var passwordError = document.getElementById('register-password-error');
     var passwordValue = password.value.trim();
     if (passwordValue.length < 8) {
         setInvalid(password);
+        passwordError.textContent = 'Password must be at least 8 characters.';
         hasError = true;
     } else if (passwordValue.length > 16) {
         setInvalid(password);
+        passwordError.textContent = 'Password must not exceed 16 characters.';
         hasError = true;
-    } else if (passwordValue.match(/[a-zA-Z]+/) == null) {
+    } else if (!passwordValue.match(/[a-zA-Z]/) || !passwordValue.match(/[0-9]/)) {
         setInvalid(password);
-        hasError = true;
-    } else if (passwordValue.match(/[0-9]+/) == null) {
-        setInvalid(password);
+        passwordError.textContent = 'Password must contain letters and numbers.';
         hasError = true;
     } else {
         setValid(password);
+        passwordError.textContent = ''; // Clear the error message
     }
 
     var programme = document.getElementById('register-programme-control');
+    var programmeError = document.getElementById('register-programme-error');
     if (programme.validity.valueMissing) {
         setInvalid(programme);
-        hasError = true;
-    } else if (!programme.validity.valid) {
-        setInvalid(programme);
+        programmeError.textContent = 'Selecting a programme is required.';
         hasError = true;
     } else {
         setValid(programme);
+        programmeError.textContent = ''; // Clear the error message
     }
 
+    var errorContainer = document.getElementById('register-error');
     if (hasError) {
-        document.getElementById('register-error').classList.remove('d-none');
+        errorContainer.classList.remove('d-none');
     } else {
-        document.getElementById('register-error').classList.add('d-none');
+        errorContainer.classList.add('d-none');
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', function() {
     document
