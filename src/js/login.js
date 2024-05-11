@@ -34,32 +34,48 @@ function login(event) {
     event.stopPropagation();
 
     var hasError = false;
-
     var email = document.getElementById('login-email-control');
+    var password = document.getElementById('login-password-control');
+    var emailError = document.getElementById('login-email-error');
+    var passwordError = document.getElementById('login-password-error');
+    var errorDiv = document.getElementById('login-error');
+
+    // Validate email
     if (email.validity.valid) {
         setValid(email);
-    } else if (email.validity.valueMissing) {
-        setInvalid(email);
-        hasError = true;
+        emailError.innerHTML = ''; // Clear any existing error message
     } else {
         setInvalid(email);
         hasError = true;
+        if (email.validity.valueMissing) {
+            emailError.innerHTML = 'Email is required.'; // Specific error for missing value
+        } else if (email.validity.typeMismatch) {
+            emailError.innerHTML = 'Please enter a valid email address.'; // Specific error for type mismatch
+        } else {
+            emailError.innerHTML = 'Please correct the email address.'; // Generic error if other validations fail
+        }
     }
 
-    var password = document.getElementById('login-password-control');
+    // Validate password
     if (password.value.trim().length == 0) {
         setInvalid(password);
+        passwordError.innerHTML = 'Password cannot be empty.'; // Specific error for empty password
         hasError = true;
     } else {
         setValid(password);
+        passwordError.innerHTML = ''; // Clear any existing error message
     }
 
+    // Show or hide the error notification
     if (hasError) {
-        document.getElementById('login-error').classList.remove('d-none');
+        errorDiv.classList.remove('d-none');
+        errorDiv.innerHTML = 'Please correct the errors below and try again.'; // More informative error message
     } else {
-        document.getElementById('login-error').classList.add('d-none');
+        errorDiv.classList.add('d-none');
+        errorDiv.innerHTML = ''; // Clear the error message when all fields are valid
     }
 }
+
 
 /**
  * Validate the login form and try to retrieve the password
