@@ -16,7 +16,7 @@
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-8 media">
-                    <img class="align-self-center mr-3 rounded-right logo" src="./img/logo.jpg">
+                    <img class="align-self-center mr-3 rounded-right logo" src="./img/logo.jpg" alt="Lorem Ipsum Institute of Technology's Logo">
                     <div class="media-body align-self-center">
                         <div class="mb-0 title">Lorem Ipsum
                             <br>Institute of Technology
@@ -124,22 +124,23 @@
             <div class="col-12 col-md-5 mt-4 login">
                 <div class="p-4 mr-md-3 bg-white">
                     <div class="text-primary mb-4 title">Login</div>
-                    <div class="text-danger mb-4 d-none subtitle" id="login-error">Please correct the error(s) below and try again.</div>
-                    <form id="login-form">
+                    <div class="text-danger mb-4 d-none subtitle" id="login-error">Please correct the error(s)</div>
+                    <ul class="sr-only" id="login-error-list"></ul>
+                    <form id="login-form" novalidate>
                         <div class="form-group">
-                            <label for="login-email-control" style="display: block;">Email</label>
-                            <input class="form-control" id="login-email-control" type="email" placeholder="Email" required>
-                            <small id="login-email-error" class="invalid-feedback"></small>
+                            <input class="form-control" id="login-email-control" type="email" placeholder="Email" required style="position: relative; top: 10px;">
+                            <p style="position: relative; top: -60px;">Email</p>
+                            <small class="invalid-feedback"></small>
                         </div>
                         <div class="form-group">
-                            <label for="login-password-control" style="display: block;">Password</label>
-                            <input class="form-control" id="login-password-control" type="password" placeholder="Password">
-                            <small id="login-password-error" class="invalid-feedback"></small>
+                            <input class="form-control" id="login-password-control" type="password" placeholder="Password" style="position: relative; top: 10px;">
+                            <p style="position: relative; top: -60px;">Password</p>
+                            <small class="invalid-feedback"></small>
                         </div>
                         <div class="form-group">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="remember" id="login-remmeber-control">
-                                <label class="form-check-label" for="login-remmeber-control">Keep me logged in</label>
+                                <label class="form-check-label">Keep me logged in</label>
                             </div>
                         </div>
                         <button class="btn btn-primary" id="login-login-button" type="submit">Login</button>
@@ -152,34 +153,37 @@
                 <div class="p-4 bg-white">
                     <div class="text-primary mb-4 title">Create new account</div>
                     <div class="text-danger mb-4 d-none subtitle" id="register-error">Please correct the error(s)</div>
+                    <ul class="sr-only" id="register-error-list"></ul>
                     <form id="register-form" novalidate>
-                        <fieldset>
-                            <legend>Basic information <small class="text-secondary">(optional)</small></legend>
+                        <div class="form-group">
+                            <p class="form-label" id="register-basic-legend">Basic information
+                                <small class="text-secondary">(optional)</small>
+                            </p>
                             <div class="form-row">
                                 <div class="form-group col-12 col-lg-6">
-                                    <label for="register-first-name-control">First name</label>
+                                    <p>First name</p>
                                     <input class="form-control" type="text" id="register-first-name-control" placeholder="First name" required>
-                                    <small id="register-first-name-error" class="invalid-feedback"></small>
+                                    <small class="invalid-feedback"></small>
                                 </div>
                                 <div class="form-group col-12 col-lg-6">
-                                    <label for="register-last-name-control">Last name</label>
+                                    <p>Last name</p>
                                     <input class="form-control" type="text" id="register-last-name-control" placeholder="Last name" required>
-                                    <small id="register-last-name-error" class="invalid-feedback"></small>
+                                    <small class="invalid-feedback"></small>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="register-email-control">Email</label>
+                                <p>Email</p>
                                 <input class="form-control" id="register-email-control" type="email" placeholder="Email" required>
-                                <small id="register-email-error" class="invalid-feedback"></small>
+                                <small class="invalid-feedback"></small>
                             </div>
                             <div class="form-group">
-                                <label for="register-password-control">Password</label>
+                                <p>Password</p>
                                 <input class="form-control" id="register-password-control" type="password" placeholder="Password" required>
-                                <small id="register-password-error" class="invalid-feedback"></small>
+                                <small class="invalid-feedback"></small>
                                 <small id="register-password-help" class="form-text text-muted">Your password must be 8-16 characters long and contain both letters and numbers.</small>
                             </div>
                             <div class="form-group">
-                                <label for="register-programme-control">Programme</label>
+                                <p>Programme</p>
                                 <select class="form-control" id="register-programme-control" required>
                                     <option value="">Please select your education or research programme</option>
                                     <option value="bachelor">Bachelor</option>
@@ -187,42 +191,40 @@
                                     <option value="continuing">Continuing education</option>
                                     <option value="doctorate">Doctorate</option>
                                 </select>
-                                <small id="register-programme-error" class="invalid-feedback"></small>
+                                <small class="invalid-feedback"></small>
                             </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>Additional information <small class="text-secondary">(optional)</small></legend>
+                        </div>
+                        <div class="form-group">
+                            <p class="form-label" id="register-address-legend">Additional information
+                                <small class="text-secondary">(optional)</small>
+                            </p>
                             <div class="form-group">
-                                <label for="register-street-control">Street</label>
+                                <p>Street</p>
                                 <input class="form-control" id="register-street-control" type="text" placeholder="Street">
-                                <small id="register-street-error" class="invalid-feedback"></small>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-12 col-lg-5">
-                                    <label for="register-city-control">City</label>
+                                    <p>City</p>
                                     <input class="form-control" id="register-city-control" type="text" placeholder="City">
-                                    <small id="register-city-error" class="invalid-feedback"></small>
                                 </div>
                                 <div class="form-group col-12 col-lg-4">
-                                    <label for="register-state-control">State</label>
+                                    <p>State</p>
                                     <input class="form-control" id="register-state-control" type="text" placeholder="State">
-                                    <small id="register-state-error" class="invalid-feedback"></small>
                                 </div>
                                 <div class="form-group col-12 col-lg-3">
-                                    <label for="register-zip-control">Zip</label>
+                                    <p>Zip</p>
                                     <input class="form-control" id="register-zip-control" type="text" placeholder="Zip">
-                                    <small id="register-zip-error" class="invalid-feedback"></small>
                                 </div>
                             </div>
-                        </fieldset>
+                        </div>
                         <button class="btn btn-primary" id="register-register-button">Register</button>
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
 
-
-
-            <div class="container-fluid bg-dark mt-4 footer">
+    <div class="container-fluid bg-dark mt-4 footer">
         <div class="container text-center py-3">
             <div class="row justify-content-around">
                 <a class="col-12 col-md mr-3 text-white" href="./empty.html?title=About">About</a>

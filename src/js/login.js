@@ -34,48 +34,32 @@ function login(event) {
     event.stopPropagation();
 
     var hasError = false;
-    var email = document.getElementById('login-email-control');
-    var password = document.getElementById('login-password-control');
-    var emailError = document.getElementById('login-email-error');
-    var passwordError = document.getElementById('login-password-error');
-    var errorDiv = document.getElementById('login-error');
 
-    // Validate email
+    var email = document.getElementById('login-email-control');
     if (email.validity.valid) {
         setValid(email);
-        emailError.innerHTML = ''; // Clear any existing error message
+    } else if (email.validity.valueMissing) {
+        setInvalid(email);
+        hasError = true;
     } else {
         setInvalid(email);
         hasError = true;
-        if (email.validity.valueMissing) {
-            emailError.innerHTML = 'Email is required.'; // Specific error for missing value
-        } else if (email.validity.typeMismatch) {
-            emailError.innerHTML = 'Please enter a valid email address.'; // Specific error for type mismatch
-        } else {
-            emailError.innerHTML = 'Please correct the email address.'; // Generic error if other validations fail
-        }
     }
 
-    // Validate password
+    var password = document.getElementById('login-password-control');
     if (password.value.trim().length == 0) {
         setInvalid(password);
-        passwordError.innerHTML = 'Password cannot be empty.'; // Specific error for empty password
         hasError = true;
     } else {
         setValid(password);
-        passwordError.innerHTML = ''; // Clear any existing error message
     }
 
-    // Show or hide the error notification
     if (hasError) {
-        errorDiv.classList.remove('d-none');
-        errorDiv.innerHTML = 'Please correct the errors below and try again.'; // More informative error message
+        document.getElementById('login-error').classList.remove('d-none');
     } else {
-        errorDiv.classList.add('d-none');
-        errorDiv.innerHTML = ''; // Clear the error message when all fields are valid
+        document.getElementById('login-error').classList.add('d-none');
     }
 }
-
 
 /**
  * Validate the login form and try to retrieve the password
@@ -119,77 +103,67 @@ function register(event) {
     var hasError = false;
 
     var firstName = document.getElementById('register-first-name-control');
-    var firstNameError = document.getElementById('register-first-name-error');
     if (firstName.value.trim().length == 0) {
         setInvalid(firstName);
-        firstNameError.textContent = 'First name is required.';
         hasError = true;
-    } else {
+    } else if (firstName.validity.valid) {
         setValid(firstName);
-        firstNameError.textContent = ''; // Clear the error message
     }
 
     var lastName = document.getElementById('register-last-name-control');
-    var lastNameError = document.getElementById('register-last-name-error');
     if (lastName.value.trim().length == 0) {
         setInvalid(lastName);
-        lastNameError.textContent = 'Last name is required.';
         hasError = true;
-    } else {
+    } else if (lastName.validity.valid) {
         setValid(lastName);
-        lastNameError.textContent = ''; // Clear the error message
     }
 
     var email = document.getElementById('register-email-control');
-    var emailError = document.getElementById('register-email-error');
-    if (!email.validity.valid) {
+    if (email.validity.valid) {
+        setValid(email);
+    } else if (email.validity.valueMissing) {
         setInvalid(email);
-        emailError.textContent = email.validity.valueMissing ? 'Email is required.' : 'Please enter a valid email.';
         hasError = true;
     } else {
-        setValid(email);
-        emailError.textContent = ''; // Clear the error message
+        setInvalid(email);
+        hasError = true;
     }
 
     var password = document.getElementById('register-password-control');
-    var passwordError = document.getElementById('register-password-error');
     var passwordValue = password.value.trim();
     if (passwordValue.length < 8) {
         setInvalid(password);
-        passwordError.textContent = 'Password must be at least 8 characters.';
         hasError = true;
     } else if (passwordValue.length > 16) {
         setInvalid(password);
-        passwordError.textContent = 'Password must not exceed 16 characters.';
         hasError = true;
-    } else if (!passwordValue.match(/[a-zA-Z]/) || !passwordValue.match(/[0-9]/)) {
+    } else if (passwordValue.match(/[a-zA-Z]+/) == null) {
         setInvalid(password);
-        passwordError.textContent = 'Password must contain letters and numbers.';
+        hasError = true;
+    } else if (passwordValue.match(/[0-9]+/) == null) {
+        setInvalid(password);
         hasError = true;
     } else {
         setValid(password);
-        passwordError.textContent = ''; // Clear the error message
     }
 
     var programme = document.getElementById('register-programme-control');
-    var programmeError = document.getElementById('register-programme-error');
     if (programme.validity.valueMissing) {
         setInvalid(programme);
-        programmeError.textContent = 'Selecting a programme is required.';
+        hasError = true;
+    } else if (!programme.validity.valid) {
+        setInvalid(programme);
         hasError = true;
     } else {
         setValid(programme);
-        programmeError.textContent = ''; // Clear the error message
     }
 
-    var errorContainer = document.getElementById('register-error');
     if (hasError) {
-        errorContainer.classList.remove('d-none');
+        document.getElementById('register-error').classList.remove('d-none');
     } else {
-        errorContainer.classList.add('d-none');
+        document.getElementById('register-error').classList.add('d-none');
     }
 }
-
 
 document.addEventListener('DOMContentLoaded', function() {
     document

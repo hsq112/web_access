@@ -16,7 +16,7 @@
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-8 media">
-                    <img class="align-self-center mr-3 rounded-right logo" src="./img/logo.jpg">
+                    <img class="align-self-center mr-3 rounded-right logo" src="./img/logo.jpg" alt="Lorem Ipsum Institute of Technology's Logo">
                     <div class="media-body align-self-center">
                         <div class="mb-0 title">Lorem Ipsum
                             <br>Institute of Technology
@@ -39,7 +39,7 @@
         <div class="container">
             <div class="navbar navbar-dark bg-dark navbar-expand-lg px-0">
                 <div class="navbar-brand d-lg-none">
-                    <img class="rounded-right" src="./img/logo.jpg" width="40" height="40">
+                    <img class="rounded-right" src="./img/logo.jpg" width="40" height="40" alt="Lorem Ipsum Institute of Technology's Logo">
                 </div>
                 <button class="navbar-toggler" type="button">
                     <span class="navbar-toggler-icon"></span>
@@ -123,75 +123,79 @@
         <div class="p-5 bg-white">
             <div class="text-primary text-center mb-4 title">Global temperature record shows 2016 as the warmest year on record</div>
             <div class="text-center wrapper">
-                <img src="./img/temperature.jpg" class="figure-img img-fluid">
-                <p class="figure-caption text-center px-5">The graphic shows the global mean surface temperature change since 1880 till nowadays. The grey curve indicates
+                <figure role="group" aria-labelledby="temperature-title" aria-describedby="temperature-description">
+                    <img src="./img/temperature.jpg" class="figure-img img-fluid" alt="Global average temperature trends">
+                    <figcaption id="temperature-title" class="text-primary text-center mb-4 title">Global average temperature trends</figcaption>
+                    <p id="temperature-description" class="figure-caption text-center px-5">The graphic shows the global mean surface temperature change since 1880 till nowadays. The grey curve indicates
                     the annual average temperature and the black curve shows the smoothed result. Over the last two centuries,
-                    the mean tempurature has increased by around 1 degree Celcius.</p>
+                    the mean tempurature has increased by around 1 degree Celcius.
+                    </p>
+                </figure>
             </div>
             <p>The global temperature record shows the fluctuations of the temperature of the atmosphere and the oceans through
                 various spans of time. The recently data published by NASA is one of the most detailed information exists
                 since 1850, when methodical thermometer-based records began.
             </p>
             <p>Sixteen of the 17 warmest years in the 136-year record all have occurred since 2001, with the exception of 1998.
-                The year 2016 ranks as the warmest on record.</p>
-            <div class="table-responsive mt-4 wrapper">
+                The year 2016 ranks as the warmest on record.
+            </p>
+            <div class="table-responsive mt-4 wrapper" role="table" aria-labelledby="temperature-data-title">
                 <table class="table text-center">
                     <col>
                     <col>
                     <colgroup span="2"></colgroup>
-                    <thead class="thead-dark">
+                    <tbody class="thead-dark">
                         <tr>
-                            <th class="align-middle" rowspan="2" scope="col">Century</th>
-                            <th class="align-middle" rowspan="2" scope="col">Year</th>
-                            <th class="align-middle" colspan="2" scope="col">Temperature</th>
+                            <td class="align-middle" rowspan="2">Century</td>
+                            <td class="align-middle" rowspan="2">Year</td>
+                            <td class="align-middle" colspan="2">Temperature</td>
                         </tr>
                         <tr>
-                            <th class="align-middle" scope="col">Average</th>
-                            <th class="align-middle" scope="col">Smoothed</th>
+                            <td class="align-middle">Average</td>
+                            <td class="align-middle">Smoothed</td>
                         </tr>
-                    </thead>
+                    </tbody>
                     <tbody>
                         <tr>
-                            <th class="align-middle" rowspan="2" scope="rowgroup">19th century</th>
-                            <th scope="row">1880</th>
+                            <td class="align-middle" rowspan="2">19th century</td>
+                            <td>1880</td>
                             <td>-0.20</td>
                             <td>-0.13</td>
                         </tr>
                         <tr>
-                            <th scope="row">1890</th>
+                            <td>1890</td>
                             <td>-0.37</td>
                             <td>-0.26</td>
                         </tr>
                     </tbody>
                     <tbody>
                         <tr>
-                            <th class="align-middle" rowspan="2" scope="rowgroup">20th century</th>
-                            <th scope="row">1920</th>
+                            <td class="align-middle" rowspan="2">20th century</td>
+                            <td>1920</td>
                             <td>-0.27</td>
                             <td>-0.26</td>
                         </tr>
                         <tr>
-                            <th scope="row">1990</th>
+                            <td>1990</td>
                             <td>0.44</td>
                             <td>0.34</td>
                         </tr>
                     </tbody>
                     <tbody>
                         <tr>
-                            <th class="align-middle" rowspan="2" scope="rowgroup">21st century</th>
-                            <th scope="row">2000</th>
+                            <td class="align-middle" rowspan="2">21st century</td>
+                            <td>2000</td>
                             <td>0.42</td>
                             <td>0.52</td>
                         </tr>
                         <tr>
-                            <th scope="row">2016</th>
+                            <td>2016</td>
                             <td>0.99</td>
                             <td>0.91</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
 
