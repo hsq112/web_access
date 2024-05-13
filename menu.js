@@ -51,7 +51,6 @@ function closeAllDropdowns(excludeMenuItem) {
   });
 }
 
-// 
 
 function addCombinator( matcher, combinator, base ) {
 	var dir = combinator.dir,
