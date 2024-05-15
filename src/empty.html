@@ -12,7 +12,8 @@
 </head>
 
 <body class="d-flex flex-column bg-light">
-    <div class="container-fluid d-none d-lg-block my-4 header">
+    <!-- Header/banner Section -->
+    <header class="container-fluid d-none d-lg-block my-4 header">
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-8 media">
@@ -26,22 +27,23 @@
                 <div class="col-4">
                     <div class="btn-toolbar justify-content-end">
                         <div class="btn-group btn-group-sm">
-                            <button class="btn btn-dark font-increase-button" id="font-increase-button" aria-label="increase the font size">A+</button>
-                            <button class="btn btn-dark font-decrease-button" id="font-decrease-button" aria-label="decrease the font size">A-</button>
+                            <button class="btn btn-dark font-increase-button" id="font-increase-button">A+</button>
+                            <button class="btn btn-dark font-decrease-button" id="font-decrease-button">A-</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </header>
 
-    <div class="container-fluid bg-dark nav">
+    <!--- Navigation Section -->
+    <nav class="container-fluid bg-dark nav">
         <div class="container">
             <div class="navbar navbar-dark bg-dark navbar-expand-lg px-0">
                 <div class="navbar-brand d-lg-none">
-                    <img class="rounded-right" src="./img/logo.jpg" width="40" height="40" alt="Lorem Ipsum Institute of Technology的Logo">
+                    <img class="rounded-right" src="./img/logo.jpg" width="40" height="40" alt="Lorem Ipsum Institute of Technology's Logo">
                 </div>
-                <button class="navbar-toggler" type="button">
+                <button class="navbar-toggler" type="button" aria-label="menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="nav-bar-content">
@@ -111,21 +113,22 @@
             <div class="d-lg-none">
                 <div class="btn-toolbar justify-content-end">
                     <div class="btn-group btn-group-sm">
-                        <button class="btn btn-dark text-white font-increase-button" id="font-increase-button-1" aria-label="increase the font size">A+>A+</button>
-                        <button class="btn btn-dark text-white font-decrease-button" id="font-decrease-button-1" aria-label="decrease the font size">A+>A-</button>
+                        <button class="btn btn-dark text-white font-increase-button" id="font-increase-button-1">A+</button>
+                        <button class="btn btn-dark text-white font-decrease-button" id="font-decrease-button-1">A-</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <div class="container mt-4 text-center main" id="main">
+    <!-- Main Content Section -->
+    <main class="container mt-4 text-center main" id="main">
         <h6 class="text-primary py-4 mb-4 title" id="title-placeholder">Loading...</h6>
         <p class="text-secondary" id="text-placeholder"></p>
-    </div>
+    </main>
 
-
-    <div class="container-fluid bg-dark mt-4 footer">
+    <!-- Footer Section -->
+    <footer class="container-fluid bg-dark mt-4 footer">
         <div class="container text-center py-3">
             <div class="row justify-content-around">
                 <a class="col-12 col-md mr-3 text-white" href="./empty.html?title=About">About</a>
@@ -135,7 +138,7 @@
                 <a class="col-12 col-md mr-3 text-white" href="./empty.html?title=Privacy+policy">Privacy policy</a>
             </div>
         </div>
-    </div>
+    </footer>
 
     <script type="text/javascript" src="./js/jquery.js"></script>
     <script type="text/javascript" src="./js/popper.js"></script>
